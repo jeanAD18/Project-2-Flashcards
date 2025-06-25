@@ -1,54 +1,59 @@
-# Web Development Project 2 - *Soccer Logos Challenge*
+# Web Development Project 3 - Soccer Logos Challenge
 
-Submitted by: **Jeancarlo Almario**
+Submitted by: Jean Carlo Almario Dimate
 
-This web app: **is a flashcard-style quiz that tests your knowledge of soccer team logos. Click on a card to reveal the team name and click "Next" to move to the next logo.**
+This web app: Flashcards about soccer Logos where the user can guess and get visual feedback of his answer
 
-Time spent: **5** hours spent in total
+Time spent: 3 hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [x] **The app displays the title of the card set, a short description, and the total number of cards**
-  - [x] Title of card set is displayed
-  - [x] A short description of the card set is displayed
-  - [x] A list of card pairs is created
-  - [x] The total number of cards in the set is displayed
-  - [x] Card set is represented as a list of card pairs (an array of dictionaries where each dictionary contains the question and answer is perfectly fine)
-- [x] **A single card at a time is displayed**
-  - [x] Only one half of the information pair is displayed at a time
-- [x] **Clicking on the card flips the card over, showing the corresponding component of the information pair**
-  - [x] Clicking on a card flips it over, showing the back with corresponding information
-  - [x] Clicking on a flipped card again flips it back, showing the front
-- [x] **Clicking on the next button displays a random new card**
+- [X] **The user can enter their guess into an input box *before* seeing the flipside of the card**
+  - Application features a clearly labeled input box with a submit button where users can type in a guess
+  - Clicking on the submit button with an **incorrect** answer shows visual feedback that it is wrong 
+  -  Clicking on the submit button with a **correct** answer shows visual feedback that it is correct
+- [X] **The user can navigate through an ordered list of cardss**
+  - A forward/next button displayed on the card navigates to the next card in a set sequence when clicked
+  - A previous/back button displayed on the card returns to the previous card in the set sequence when clicked
+  - Both the next and back buttons should have some visual indication that the user is at the beginning or end of the list (for example, graying out and no longer being available to click), not allowing for wrap-around navigation
 
 The following **optional** features are implemented:
 
-- [x] Cards contain images in addition to or in place of text
-  - [x] All cards use soccer team logos as images
-- [ ] Cards have different visual styles such as color based on their category
+
+- [ ] Users can use a shuffle button to randomize the order of the cards
+  - Cards should remain in the same sequence (**NOT** randomized) unless the shuffle button is clicked 
+  - Cards should change to a random sequence once the shuffle button is clicked
+- [X] A user’s answer may be counted as correct even when it is slightly different from the target answer
+  - Answers are considered correct even if they only partially match the answer on the card 
+  - Examples: ignoring uppercase/lowercase discrepancies, ignoring punctuation discrepancies, matching only for a particular part of the answer rather than the whole answer
+- [ ] A counter displays the user’s current and longest streak of correct responses
+  - The current counter increments when a user guesses an answer correctly
+  - The current counter resets to 0 when a user guesses an answer incorrectly
+  - A separate counter tracks the longest streak, updating if the value of the current streak counter exceeds the value of the longest streak counter 
+- [ ] A user can mark a card that they have mastered and have it removed from the pool of displayed cards
+  - The user can mark a card to indicate that it has been mastered
+  - Mastered cards are removed from the pool of displayed cards and added to a list of mastered cards
+
 
 The following **additional** features are implemented:
 
-- [x] Smooth flip animation using CSS `transform: rotateY`
-- [x] Responsive layout using Flexbox
-- [x] Reset to first card after reaching the end
+* [ ] List anything else that you added to improve the site's functionality!
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented required features:
+Here's a walkthrough of implemented user stories:
 
-<img src='./src/assets/2025-06-16 23-54-21.gif' title='Video Walkthrough' width='600' alt='Video Walkthrough' />
-
+<img src='./src/assets/9yil8m.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Notes
 
-One challenge was implementing a realistic card-flip animation with React and syncing it correctly with the state. Also had to adjust the card size and centering using Flexbox to make it work across different screen sizes.
+Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright 2025 Jeancarlo Almario
+    Copyright [yyyy] [name of copyright owner]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

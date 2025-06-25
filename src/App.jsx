@@ -5,20 +5,54 @@ import './App.css';
 function App() {
   const [index, setIndex] = useState(0);
   const [showName, setShowName] = useState(false);
+  const [answer, setAnswer] = useState('');
+  const [correct, setCorrect] = useState(false)
+  const [showcorrect, setShowCorrect] = useState(false)
+  const [endOfArray, setEnd] = useState('left')
   const flashcard = flashcardList[index];
 
-  function updateIndex() {
+  function increaseIndex() {
     if (index < flashcardList.length - 1) {
       setIndex(index + 1);
-    } else {
-      setIndex(0);
+      setEnd("")
     }
+    index >= flashcardList.length - 2 ? setEnd("right") : setEnd("")
+    setShowName(false);
+  }
+
+  function decreaseIndex() {
+    if (index > 0) {
+      setIndex(index - 1);
+      setEnd("")
+    }
+    index <= 1 ? setEnd("left") : setEnd("")
     setShowName(false);
   }
 
   function revealName() {
     setShowName(!showName);
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(!showName){
+      if(answer.trim().toLowerCase() == flashcard.name.trim().toLocaleLowerCase()){
+        setCorrect(true)
+        setShowCorrect(true)
+      }
+      else {
+        setShowCorrect(true)
+      }
+    }
+    setAnswer('');
+
+    setTimeout(() => {
+      setCorrect(false);
+      setShowCorrect(false);
+    }, 1000);
+  }
+
+
 
   return (
     <>
@@ -39,11 +73,21 @@ function App() {
             </div>
           </div>
         </div>
-
-        <button onClick={updateIndex}>Next Logo</button>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input type="text" value={answer} onChange={(e) => setAnswer(e.target.value)} placeholder='Make your guess'/>
+            <button className={showcorrect ? (correct ? 'correct' : 'wrong'): 'submit'}>{showcorrect ? (correct ? '✓' : '✕'): 'Submit'}</button>
+          </form>
+        </div>
+        <div>
+          <button className={endOfArray == 'left' ? 'left' : ''} onClick={decreaseIndex}>Previous Logo</button>
+          <button className={endOfArray == 'right' ? 'right' : ''} onClick={increaseIndex}>Next Logo</button>
+        </div>
       </div>
     </>
   );
 }
 
 export default App;
+
+
